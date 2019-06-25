@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="./js/bundle.js"></script>
+    <title> Countries </title>
+  </head>
+  <body>
+    I really hate users
+    <div id="app">
+      <!-- <p v-for="country in countries"> {{country.name}} </p> -->
+      <p> The worlds total population is: {{totalPopulation}} </p>
+
+      <select v-model="selectedCountry">
+        <option v-for="country in countries">{{country.name}}</option>
+      </select>
+
+      <section>
+        <br>
+      <div v-if="selectedCountry">
+        {{selectedCountryData.name}}
+        <br>
+        <img :src="selectedCountryData.flag" height="100" width="150">
+      </div>
+    </section>
+
+      <form v-on:submit.prevent="addFavCountry">
+      <select v-model="selectedFavCountry">
+        <option v-for="country in countries">{{country.name}}</option>
+      </select>
+      <input type="submit" name="Add fav country" value="Add fav country">
+
+    </div>
+
+  </body>
+</html>
